@@ -1,0 +1,323 @@
+# 🩺 Disease Prediction & Patient Profiling System
+
+> **AI-Powered Healthcare Prediction using Machine Learning**
+
+A modern web-based healthcare application that predicts the most probable disease based on user-selected symptoms using a **Random Forest Machine Learning model**. The system also provides disease descriptions, recommended precautions, patient history management, dashboard analytics, and downloadable PDF medical reports.
+
+---
+
+## 📌 Project Overview
+
+The **Disease Prediction & Patient Profiling System** is designed to assist users in obtaining a preliminary disease prediction based on the symptoms they select. The application combines **Machine Learning**, **Flask**, and **SQLite** to deliver an interactive and user-friendly healthcare solution.
+
+The prediction model has been trained on a disease-symptom dataset and provides the **Top 3 most probable diseases** along with confidence scores. The system also maintains patient records and generates professional PDF reports for future reference.
+
+> **Note:** This application is intended for educational and demonstration purposes only and should not be considered a substitute for professional medical diagnosis.
+
+---
+
+# ✨ Key Features
+
+## 🤖 AI-Based Disease Prediction
+
+* Predict diseases using a trained Random Forest model
+* Top 3 disease predictions
+* Confidence score for each prediction
+* Fast and accurate symptom analysis
+
+---
+
+## 👤 Patient Profiling
+
+* Patient Name
+* Age
+* Gender
+* Selected Symptoms
+
+---
+
+## 🩺 Medical Information
+
+* Disease Description
+* Recommended Precautions
+* Medical Disclaimer
+* Confidence-based prediction display
+
+---
+
+## 📊 Dashboard
+
+* Total Patients
+* Total Predictions
+* Total Diseases Predicted
+
+---
+
+## 📂 Patient History
+
+* Store patient records
+* Search previous records
+* Delete records
+
+---
+
+## 📄 PDF Report Generation
+
+Generate a professional medical report including:
+
+* Patient Information
+* Disease Prediction
+* Confidence Score
+* Disease Description
+* Recommended Precautions
+* Medical Disclaimer
+* Date & Time
+
+---
+
+## 🎨 User Interface
+
+* Responsive Bootstrap Design
+* Searchable Symptoms
+* AI Loading Screen
+* Professional Dashboard
+* Clean Navigation
+* Modern Footer
+
+---
+
+# 🛠️ Tech Stack
+
+### Programming Language
+
+* Python
+
+### Backend
+
+* Flask
+
+### Machine Learning
+
+* Scikit-learn
+* Random Forest Classifier
+* MultiLabelBinarizer
+
+### Database
+
+* SQLite
+
+### Frontend
+
+* HTML5
+* CSS3
+* Bootstrap 5
+* JavaScript
+
+### Libraries
+
+* Pandas
+* Joblib
+* ReportLab
+
+---
+
+# 🧠 Machine Learning Workflow
+
+```
+Disease-Symptom Dataset
+          │
+          ▼
+Data Preprocessing
+(MultiLabelBinarizer)
+          │
+          ▼
+Random Forest Training
+          │
+          ▼
+Model Saved (.pkl)
+          │
+          ▼
+User Selects Symptoms
+          │
+          ▼
+Disease Prediction
+          │
+          ▼
+Top 3 Predictions + Confidence
+```
+
+---
+
+# 🏗️ System Architecture
+
+```
+                User
+
+                  │
+
+                  ▼
+
+        Flask Web Application
+
+                  │
+
+      ┌───────────┴───────────┐
+
+      ▼                       ▼
+
+Machine Learning         SQLite Database
+
+(Random Forest)        Patient History
+
+      │
+
+      ▼
+
+Prediction Result
+
+      │
+
+      ▼
+
+PDF Report Generation
+```
+
+---
+
+# 📁 Project Structure
+
+```
+Disease_Prediction_System/
+
+│── app.py
+
+│── train_model.py
+
+│── database.py
+
+│── pdf_generator.py
+
+│── disease_model.pkl
+
+│── symptom_encoder.pkl
+
+│── requirements.txt
+
+│── patient_history.db
+
+│
+
+├── dataset/
+
+├── static/
+
+│   ├── css/
+
+│   ├── js/
+
+│   └── images/
+
+│
+
+└── templates/
+
+    ├── index.html
+
+    ├── result.html
+
+    ├── dashboard.html
+
+    ├── history.html
+
+    ├── loading.html
+
+    └── base.html
+```
+
+---
+
+# 🚀 Installation
+
+### Clone Repository
+
+```bash
+git clone <repository-url>
+```
+
+### Navigate to Project
+
+```bash
+cd Disease_Prediction_System
+```
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Run Application
+
+```bash
+python app.py
+```
+
+Open your browser:
+
+```
+http://127.0.0.1:5000
+```
+
+---
+
+# 📸 Screenshots
+
+Add screenshots of:
+
+* Home Page
+* Disease Prediction
+* AI Loading Screen
+* Result Page
+* Dashboard
+* Patient History
+* PDF Report
+
+---
+
+# 📈 Future Enhancements
+
+* User Authentication
+* Doctor Recommendation System
+* Cloud Deployment
+* Mobile Application
+* Integration with Hospital APIs
+* Larger Clinical Datasets
+* Multilingual Support
+
+---
+
+# 👨‍💻 Developer
+
+**Manukonda Sridhar**
+
+B.Tech – Computer Science & Engineering
+
+Raghu Engineering College
+
+GitHub: https://github.com/Sridhar-manukonda23
+
+LinkedIn: https://www.linkedin.com/in/manukonda-sridhar-9b04263a7/
+
+---
+
+# 📄 License
+
+This project is developed for **educational purposes only**.
+
+The prediction results generated by this application should not be considered a substitute for professional medical advice, diagnosis, or treatment.
+
+---
+
+# ⭐ If you like this project
+
+Please consider giving it a ⭐ on GitHub.

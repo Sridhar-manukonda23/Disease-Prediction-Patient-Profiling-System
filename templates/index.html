@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+
+{% block title %}
+Disease Prediction System
+{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-8">
+
+        <div class="card shadow-lg border-0">
+
+            <div class="card-body p-5">
+
+                <h2 class="text-center text-primary mb-3">
+Disease Prediction & Patient Profiling                </h2>
+
+                <p class="text-center text-muted mb-4">
+                    AI Powered Healthcare Assistant
+                </p>
+
+                {% if error %}
+                <div class="alert alert-danger">
+                    {{ error }}
+                </div>
+                {% endif %}
+
+<form id="predictionForm" action="/predict" method="POST">
+
+    <!-- Patient Information -->
+
+<h4 class="mb-4 text-primary fw-bold">
+    <i class="bi bi-person-vcard-fill"></i>
+    Patient Information
+</h4>
+
+    <div class="row">
+
+        <div class="col-md-6 mb-3">
+
+            <label class="form-label">
+                Full Name
+            </label>
+
+            <input
+                type="text"
+                class="form-control"
+                name="patient_name"
+                placeholder="Enter patient's name"
+                required>
+
+        </div>
+
+        <div class="col-md-3 mb-3">
+
+            <label class="form-label">
+                Age
+            </label>
+
+            <input
+                type="number"
+                class="form-control"
+                name="age"
+                min="1"
+                max="120"
+                required>
+
+        </div>
+
+        <div class="col-md-3 mb-3">
+
+            <label class="form-label">
+                Gender
+            </label>
+
+            <select
+                class="form-select"
+                name="gender"
+                required>
+
+                <option value="">Choose</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+    <hr class="my-4">
+
+    <div class="mb-3">
+        <label class="form-label fw-bold">
+    <i class="bi bi-clipboard2-pulse-fill"></i>
+    Select Symptoms
+</label>
+<div class="mb-3">
+
+    <input
+        type="text"
+        id="searchSymptoms"
+        class="form-control"
+        placeholder="🔍 Search symptoms...">
+
+</div>
+       <select
+    id="symptomList"
+    class="form-select symptom-select"
+    name="symptoms"
+    multiple
+    size="12">
+
+            
+
+                            {% for symptom in symptoms %}
+
+                            <option value="{{ symptom }}">
+                                {{ symptom }}
+                            </option>
+
+                            {% endfor %}
+
+                        </select>
+                        <div class="card mt-3">
+
+    <div class="card-body">
+
+        <h6 class="text-primary fw-bold">
+            <i class="bi bi-check-circle-fill"></i>
+            Selected Symptoms
+            (<span id="selectedCount">0</span>)
+        </h6>
+
+        <ul
+            id="selectedSymptoms"
+            class="list-group list-group-flush">
+
+        </ul>
+
+    </div>
+
+</div>
+
+                    </div>
+
+           <div class="d-grid">
+
+                <button
+                    id="predictBtn"
+                    type="submit"
+                    class="btn btn-primary btn-lg">
+
+                    <i class="bi bi-cpu-fill"></i>
+                    Predict Disease Using AI
+
+                </button>
+
+            </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+...
+
+</form>
+
+<script>
+
+document.getElementById("predictionForm").addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const formData = new FormData(this);
+
+    const obj = {};
+
+    formData.forEach((value,key)=>{
+
+        if(obj[key]){
+            if(!Array.isArray(obj[key])){
+                obj[key]=[obj[key]];
+            }
+            obj[key].push(value);
+        }else{
+            obj[key]=value;
+        }
+
+    });
+
+    sessionStorage.setItem("predictionData",JSON.stringify(obj));
+
+    window.location.href="/loading";
+
+});
+
+</script>
+
+{% endblock %}
