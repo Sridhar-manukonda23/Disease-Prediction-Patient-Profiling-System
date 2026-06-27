@@ -270,20 +270,6 @@ http://127.0.0.1:5000
 
 ---
 
-# 📸 Screenshots
-
-Add screenshots of:
-
-* Home Page
-* Disease Prediction
-* AI Loading Screen
-* Result Page
-* Dashboard
-* Patient History
-* PDF Report
-
----
-
 # 📈 Future Enhancements
 
 * User Authentication
