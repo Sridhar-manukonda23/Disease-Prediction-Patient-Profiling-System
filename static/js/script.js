@@ -1,37 +1,52 @@
+// -----------------------------
+// Symptoms Search & Selection
+// -----------------------------
+
 const searchBox = document.getElementById("searchSymptoms");
-const symptomList = document.getElementById("symptomList");
+
+const symptomItems = document.querySelectorAll(".symptom-item");
+
+const checkboxes = document.querySelectorAll(".symptom-checkbox");
 
 const selectedSymptoms = document.getElementById("selectedSymptoms");
+
 const selectedCount = document.getElementById("selectedCount");
 
-if (searchBox && symptomList) {
+// Search Symptoms
 
-    // Search functionality
+if (searchBox) {
+
     searchBox.addEventListener("keyup", function () {
 
         const filter = this.value.toLowerCase();
 
-        Array.from(symptomList.options).forEach(option => {
+        symptomItems.forEach(item => {
 
-            option.style.display =
-                option.text.toLowerCase().includes(filter)
-                    ? ""
-                    : "none";
+            const text = item.innerText.toLowerCase();
+
+            item.style.display = text.includes(filter)
+                ? "block"
+                : "none";
 
         });
 
     });
 
-    // Update selected symptoms list
-    symptomList.addEventListener("change", function () {
+}
 
-        selectedSymptoms.innerHTML = "";
+// Update Selected Symptoms
 
-        const selected = Array.from(symptomList.selectedOptions);
+function updateSelectedSymptoms() {
 
-        selectedCount.textContent = selected.length;
+    selectedSymptoms.innerHTML = "";
 
-        selected.forEach(option => {
+    let count = 0;
+
+    checkboxes.forEach(box => {
+
+        if (box.checked) {
+
+            count++;
 
             const li = document.createElement("li");
 
@@ -39,16 +54,24 @@ if (searchBox && symptomList) {
 
             li.innerHTML = `
                 <i class="bi bi-check-circle-fill text-success"></i>
-                ${option.text}
+                ${box.nextElementSibling.innerText}
             `;
 
             selectedSymptoms.appendChild(li);
 
-        });
+        }
 
     });
 
+    selectedCount.textContent = count;
+
 }
+
+checkboxes.forEach(box => {
+
+    box.addEventListener("change", updateSelectedSymptoms);
+
+});
 
 // -----------------------------
 // Search Patient History
@@ -68,15 +91,9 @@ if (searchPatient) {
 
             const patientName = row.cells[1].textContent.toLowerCase();
 
-            if (patientName.includes(filter)) {
-
-                row.style.display = "";
-
-            } else {
-
-                row.style.display = "none";
-
-            }
+            row.style.display = patientName.includes(filter)
+                ? ""
+                : "none";
 
         });
 
@@ -89,6 +106,7 @@ if (searchPatient) {
 // -----------------------------
 
 const form = document.querySelector("form");
+
 const predictBtn = document.getElementById("predictBtn");
 
 if (form && predictBtn) {
