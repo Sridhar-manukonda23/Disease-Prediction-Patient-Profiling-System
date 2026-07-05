@@ -107,24 +107,32 @@ Disease Prediction & Patient Profiling                </h2>
         placeholder="🔍 Search symptoms...">
 
 </div>
-       <select
-    id="symptomList"
-    class="form-select symptom-select"
-    name="symptoms"
-    multiple
-    size="12">
+<div id="symptomContainer" class="symptom-container">
 
-            
+    {% for symptom in symptoms %}
 
-                            {% for symptom in symptoms %}
+    <div class="form-check symptom-item">
 
-                            <option value="{{ symptom }}">
-                                {{ symptom }}
-                            </option>
+        <input
+            class="form-check-input symptom-checkbox"
+            type="checkbox"
+            name="symptoms"
+            value="{{ symptom }}"
+            id="symptom{{ loop.index }}">
 
-                            {% endfor %}
+        <label
+            class="form-check-label"
+            for="symptom{{ loop.index }}">
 
-                        </select>
+            {{ symptom.replace("_", " ").title() }}
+
+        </label>
+
+    </div>
+
+    {% endfor %}
+
+</div>
                         <div class="card mt-3">
 
     <div class="card-body">
