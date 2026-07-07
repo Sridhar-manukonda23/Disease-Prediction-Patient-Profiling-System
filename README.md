@@ -190,21 +190,6 @@ Disease_Prediction_System/
 
 ---
 
-# 📸 Screenshots
-
-Add screenshots here.
-
-Example:
-
-```
-screenshots/
-│── home.png
-│── prediction.png
-│── dashboard.png
-│── history.png
-```
-
----
 
 # ⚙️ Installation
 
